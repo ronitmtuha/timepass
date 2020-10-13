@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<!--
+ © MAFEE 6 - MAFEE PERIMETER AND AREA CALCULATOR -
+ INFO - [DEVELOPED BY PRANIT KHARCHE, MAFEE6 .]
+ VISIT US ON: https://bit.ly/mafsite
+ devloped by Pranit Kharche .
+ ----MAFEE 6 ORIGNAL CODE---
+
+CODE CREATED ON - 27/4/2020
+mafee6 ------------------------------------------
+-->
+
+<html>
+<script>  console.clear(); console.log("WELCOME TO MAFEE PERIMETER AND AREA CALCULATOR V- 1.0 - A TOOL FOR FINDING PERIMETER OR AREA OF A GIVEN SHAPE. DEVELOPED BY PRANIT KHARCHE FROM MAFEE 6. MAFEE IS ALWAYS TRYING TO IMPROVE  PRODUCTS . IF ANY BUG IS DETECTED PLEASE GO TO OUR SITE TO GIVE FEEDBACK ");</script>
+
+<body bgcolor="aqua">
+
+<header style="border-radius: 9px; ">
+
+<div class="menu bar" >
+<h3  draggable="false" style="background-color:orange; text-align:center; border-radius: 4px; ">Perimeter  & Area calculator:</h3>
+<h2 draggable="false" style="background-color:rgb(0, 255, 0); text-align:center; border-radius: 10px;"><mark><u><b> MAFEE PERIMETER AND AREA CALCULATOR </b></u></mark></h2>
+</div>
+
+</header>
+
+<div class="app" style="background-color:rgb(242, 242, 242); border-radius: 10px;" >
+
+
+<!--perimeter/area selector-->
+
+<select style="margin-top:5px;  margin-left:24px; padding-top: 6px; padding-bottom: 3px; padding-left: 10px ; border-radius: 10px; " id="sl1" >
+
+<option>Find out Perimeter</option>
+<option>Find out Area</option>
+
+</select>
+
+
+<!-- of --> <h4 style="margin-left:68px; padding-left: 12px; margin-bottom: 6px;"><b>of:</b></h4>
+
+
+<!-- shape selection-->
+<select onchange="mafeeresponsivetxtbx()" value="" style="margin-left:7px; padding-top: 4px; padding-bottom: 4px; padding-left: 12px; padding-right:26px; border-radius: 10px; margin-bottom:5px;" id="sl2">
+
+<option>Shape:</option>
+<option>Rectangle</option>
+<option>Square</option>
+<option>Hexagon</option>
+<option>Equilateral Triangle</option>
+<option>Pentagon</option>
+</select> <br />
+
+
+<!-- shape- properties-->
+
+
+<!-- SHAPE'S LENGTH/ SIDE LENGTH-->
+
+<input title="Enter Length" id="tblengthorside" type="number" value="" placeholder="Enter Length" style=" visiblity:hidden; margin-left:7px; padding-top: 4px; padding-bottom: 4px; padding-left: 12px; border-radius: 12px; background-color:rgb(153, 255, 102); border: 1;margin-bottom:5px;" ><br />
+
+<!-- SHAPE'S BREADTH- FOR RECTAGLE-->
+
+<input title="Enter Breadth" id="tbbreadth" type="number" value="" placeholder="Enter Breadth" style=" visiblity:hidden; margin-left:7px; padding-top: 4px; padding-bottom: 4px; padding-left: 12px; border-radius: 12px; background-color:rgb(153, 255, 235); border: 1; margin-bottom:6px;" ><br />
+
+<!-- hi both text boxes-->
+<script>
+document.getElementById("tblengthorside").style.visibility = "hidden";
+document.getElementById("tbbreadth").style.visibility = "hidden";
+</script>
+
+
+<!--unit selector-->
+
+<select  style="margin-left:50px; padding-top: 4px; padding-bottom: 4px; padding-left: 12px; padding-right:26px; border-radius: 10px; margin-bottom:5px;" id="unit" value="">
+
+<option>mm</option>
+<option>cm</option>
+<option>m</option>
+<option>km</option>
+
+</select><br>
+
+<!--calculator button-->
+
+<button title="Calculate" style=" border-radius: 5px; background-color:#70db70; border: none; color: white; padding: 10px 10px ; text-align: center text-decoration: none; display: inline-block; font-size: 18px; margin: 4px 2px; cursor: click; margin-left:45px;" onclick="calculate()">Calculate</button>  <br>
+
+<!-- output box -->
+
+<textarea placeholder="Output"  style=" font-size: 18px ; color: rgb(0,0,0) ; padding-left:8px ; visibility padding-top:6px ; margin-top:5px ; margin-bottom: 4px ; background-color:rgb(255, 179, 102);border-radius:15px; margin-left:12px; " id="output" readonly></textarea>
+
+<!-- hide output box in js-->
+
+<script>
+document.getElementById("output").style.visibility  = "hidden";
+</script>
+
+
+</div>
+
+
+<!-- JAVASCRIPT CODE- MAFEE PERIMETER AND AREA CALCULATOR -->
+
+<!--For responsive number input.in length of one side or lenth and breadth-->
+
+<script>
+
+//MAFEE 6-JAVASCRIPT CODE- DEVLOPER- PRANIT KHARCHE FROM MAFEE6//
+
+//DATE CREATED: 28/4/2020
+
+function mafeeresponsivetxtbx() {
+
+var caltype =  document.getElementById("sl1").selectedIndex;//perimeter or area
+var shape =  document.getElementById("sl2").selectedIndex;//shape
+var lengthorside =  document.getElementById("tblengthorside").value;//length\/side
+var breadth =  document.getElementById("tbbreadth").value;//breadth
+var unit =  document.getElementById("unit").value;//unit
+
+console.log("length/side: " + lengthorside);
+console.log("unit: " + unit);
+console.log("length/side: " + lengthorside);
+console.log("MAFEE log Value: " + shape);
+console.log("MAFEE log Value: " + caltype);
+
+//mafee6
+
+document.getElementById("tblengthorside").style.visibility = "hidden";
+document.getElementById("tbbreadth").style.visibility = "hidden";
+
+
+
+if (shape==1){
+
+document.getElementById("tblengthorside").title = "mafee6";
+document.getElementById("tblengthorside").placeholder = "mafee6";
+document.getElementById("tblengthorside").style.visibility = "hidden";
+document.getElementById("tbbreadth").style.visibility = "hidden";
+ document.getElementById("sl1").disabled = false; }
+
+if (caltype==0   && shape==1){
+
+document.getElementById("tblengthorside").title = "Enter Length";
+document.getElementById("tblengthorside").placeholder = "Enter Length";
+document.getElementById("tblengthorside").style.visibility = "visible";
+document.getElementById("tbbreadth").style.visibility = "visible";
+document.getElementById("sl1").disabled = false;
+ }
+
+if (caltype==0  && shape==2 || caltype==0 && shape==3 || caltype==0 && shape==4 || caltype==0 && shape==5 ){
+
+document.getElementById("tblengthorside").title = "Enter Length of Side";
+document.getElementById("tblengthorside").placeholder = "Enter Length of Side";
+document.getElementById("tblengthorside").style.visibility = "visible";
+document.getElementById("tbbreadth").style.visibility = "hidden";
+document.getElementById("sl1").disabled = false;
+ }
+
+if (caltype==1   && shape==1){
+
+document.getElementById("tblengthorside").title = "Enter Length";
+document.getElementById("tblengthorside").placeholder = "Enter Length";
+document.getElementById("tblengthorside").style.visibility = "visible";
+document.getElementById("tbbreadth").style.visibility = "visible";
+document.getElementById("sl1").disabled = false;
+ }
+
+if (caltype==1  && shape==2 ){
+
+document.getElementById("tblengthorside").title = "Enter Length of Side";
+document.getElementById("tblengthorside").placeholder = "Enter Length of Side";
+document.getElementById("tblengthorside").style.visibility = "visible";
+document.getElementById("tbbreadth").style.visibility = "hidden";
+document.getElementById("sl1").disabled = false;
+ }
+
+
+
+if ( caltype==1 && shape==3 || caltype==1 && shape==4 || caltype==1 && shape==5){
+document.getElementById("sl1").value = "Find out Perimeter";
+document.getElementById("sl1").disabled = true;
+
+ }
+}
+
+</script>
+
+<!-- calcuation function script-->
+
+<script>
+
+//code by mafee6. © MAFEE 6 - MAFEE PERIMETER AND AREA CALCULATOR.js
+// function-calculate
+
+function calculate(){
+
+var calculationoutput = "0" ;
+
+//defining all elements
+var outputbox = document.getElementById("output").style.visibility = "visible";
+
+var caltype =  document.getElementById("sl1").selectedIndex;
+
+var shape =  document.getElementById("sl2").selectedIndex;
+
+var lengthorside =  document.getElementById("tblengthorside").value;
+
+var breadth =  document.getElementById("tbbreadth").value;
+
+var unit =  document.getElementById("unit").value;
+
+
+//For perimeter or area selection
+
+console.log("calculaton type:");
+if (caltype==0){
+console.log("Find out Perimeter Selected");
+}
+
+else if(caltype==1){
+console.log("Find out Area is Selected");
+
+}
+
+console.log("shape:");
+
+//FOR SHAPES selection
+
+if (shape==1){ // rectangle
+console.log("Shape selected is Rectangle");
+
+document.getElementById("sl1").disabled = false;
+
+}
+
+if(shape==2){ // square
+console.log("Shape selected is Square");
+
+document.getElementById("sl1").disabled = false;
+
+
+ }
+if(shape==3){ // hexagon
+console.log("Shape selected is Hexagon");
+
+// !.... Im not taught area of triangle//
+
+document.getElementById("sl1").value = "Find out Perimeter";
+document.getElementById("sl1").disabled = true;
+
+ }
+
+
+if(shape==4){  // triangle - equilateral
+console.log("Shape selected is Equilateral Triangle");
+
+// !.... Im not taught area of triangle//
+
+document.getElementById("sl1").value = "Find out Perimeter";
+document.getElementById("sl1").disabled = true;
+
+
+}
+
+if(shape==5){  // pentagon
+console.log("Shape selected is Pentagon");
+
+// !.... Im not taught area of Pentagon //
+
+document.getElementById("sl1").value = "Find out Perimeter";
+document.getElementById("sl1").disabled = true;
+
+
+}
+
+//mafee 6  code
+// Calculations and output
+
+
+// rectangle
+if (caltype==0 && shape==1 ){ // Perimeter of rectangle- 2(length+breadth);
+
+var calculationoutput = 2 * lengthorside + 2 * breadth  ;
+output.value ="Perimeter: " +  calculationoutput + unit;
+console.log("answer: " + calculationoutput + unit);
+
+ }
+
+if (caltype==1 && shape==1){ // Area of Rectangle- length*breadth;
+
+var calculationoutput = lengthorside * breadth  ;
+output.value ="Area: " +  calculationoutput + unit + " square ";
+console.log("answer: " + calculationoutput + unit + " square ");
+
+ }
+
+//Square
+
+if (caltype==0 && shape==2 ){ // Perimeter of Square- 4*side;
+
+var calculationoutput = 4*lengthorside  ;
+output.value ="Perimeter: " +  calculationoutput + unit ;
+console.log("answer: " + calculationoutput + unit);
+
+ }
+
+if (caltype==1 && shape==2 ){ // Area of Square- side*side;
+
+var calculationoutput = lengthorside * lengthorside ;
+output.value ="Area: " +  calculationoutput + unit + " square ";
+console.log("answer: " + calculationoutput + unit + " square ");
+
+ }
+
+// Hexagon
+
+if (caltype==0 && shape==3 ){ // Perimeter of Hexagon- 6*side;
+
+var calculationoutput = 6*lengthorside  ;
+output.value ="Perimeter: " +  calculationoutput + unit ;
+console.log("answer: " + calculationoutput + unit);
+
+ }
+
+//Equilateral Triangle
+
+if (caltype==0 && shape==4 ){ // Perimeter of Equilateral Triangle- 3*side;
+
+var calculationoutput = 3*lengthorside  ;
+output.value ="Perimeter: " +  calculationoutput + unit ;
+console.log("answer: " + calculationoutput + unit);
+
+}
+
+
+//Pentagon
+
+if (caltype==0 && shape==5 ){ // Perimeter of Pentagon- 5*side;
+
+var calculationoutput = 5*lengthorside  ;
+output.value ="Perimeter: " +  calculationoutput + unit ;
+console.log("answer: " + calculationoutput + unit);
+
+}
+
+
+}
+
+</script>
+
+<!--help -->
+
+<div class="help" id="helpbox" style="background-color:rgb(153, 255, 153); border-radius:8px" >
+
+<p onclick="closehelp()" style="margin-left:6px; margin-top:6px; " ondblclick="closehelp()" ><b>
+[double click on text or help icon to exit]
+
+  THIS APP IS MADE BY MAFEE DEVELOPER PRANIT KHARCHE,<br>
+
+In the White Section, You can select what you want to
+find (Perimeter or Area). Under that Select the Shape
+You want to Find the Perimeter or Area of. [Area for
+Pentagon, Hexagon and Equilateral triangle  is not
+available for now.] Under that, enter the dimension
+of the selected SHAPES. Then under that you can
+select the unit. Then CLICK on the Calculate button
+to start the calculation. Under that you will get
+the Final Perimeter or Area. Thank you for using Mafee
+Perimeter or Area Calculator  v-1.0
+</b></p> Give feedback on-
+<a href="https://forms.gle/f4zoEY4aQgfQWFxR8" target="_blank" style="margin-left:6px; margin-top:6px; margin-bottom:20px; ">feedback form</a><br>
+<a href="https://bit.ly/mafsite" target="_blank" style="margin-left:6px; margin-top:6px; ">our site</a>
+<a href="https://bit.ly/youtube-pranitkharche" target="_blank" style="margin-left:6px; margin-top:6px; ">Our YouTube Channel</a>
+
+</div>
+<script>document.getElementById("helpbox").style.visibility= "hidden";</script>
+
+<!-- footer -->
+
+<footer style="background-color:rgb(225, 255, 5); border-radius: 10px;">
+
+<h4 style="padding-left: 10px; padding-top: 3px;"> © MAFEE 6 - MAFEE PERIMETER AND AREA CALCULATOR - INFO - [DEVELOPED BY PRANIT KHARCHE, MAFEE6 .] - VISIT US ON:</h4><a href="https://bit.ly/mafsite" target="_blank"> <h4 title="Our site" style="padding-left: 10px;">https://bit.ly/mafsite</h4>  <a draggable="false" href="https://bit.ly/mafsite" target="_blank">
+
+<img  draggable="false" src="C:\Users\pranit\Desktop\mafee perimeter and area calculator with assets\MAFEE ICON.gif" width="24" hieght="25" style="padding-left: 10px;" style="margin-left:1px"> </a>
+
+<button title="help" style=" border-radius: 999999999px; background-color:rgb(51, 153, 255); border: 6px; color:rgb(0,0,0) ; text-align: center text-decoration: none; display: inline-block; font-size: 25px; cursor:; margin-left:10px; padding-left:6px; padding-right:6px ; margin-bottom:6px"  draggable="false" id="helpbtn" onclick="help()" ondblclick="closehelp()"><b>?</b></button>
+
+</footer>
+
+<!-- help- code-->
+
+<script>
+var helpboxsection = document.getElementById("helpbox");
+
+function help(){
+helpboxsection.style.visibility="visible";
+}
+function closehelp(){
+helpboxsection.style.visibility="hidden";
+}
+</script>
